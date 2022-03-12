@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import headerIconImage from "../../Images/swiggy-1.svg"
 import './Header.css';
 class Header extends Component {
     constructor(props) {
@@ -16,7 +17,7 @@ class Header extends Component {
                     <div className="header"> 
                         <div className="sub-header1">
                             <div className="header-icon"> 
-                                <img src={require('../../Images/swiggy-1.svg')} alt="" style={{width:40+"px",height:40+"px"}}/> 
+                                <img src={headerIconImage} alt="" style={{width:40+"px",height:40+"px"}}/> 
                             </div>
                             <div>set location</div>
                         </div>

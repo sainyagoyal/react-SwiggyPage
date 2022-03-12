@@ -1,0 +1,17 @@
+.main-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  min-width: 1200px;
+  position: relative;
+  margin: 50px 0 auto;
+}
+.flex-container-row-main-menu-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0 auto;
+  max-width: 1200px;
+  min-width: 1200px;
+  position: relative;
+}
