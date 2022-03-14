@@ -1,36 +1,29 @@
+
 import React, { Component } from "react";
-import headerIconImage from "../../Images/swiggy-1.svg"
+import {SWIGGY_ICON} from "../../Images/image";
+import IconText from'../../molecule/IconText/IconText';
 import './Header.css';
-class Header extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-    componentDidMount() {
-
-    }
-
-    render() {
+import {rightHeaderItems} from './services/data';
+function Header()  {
+    const rightHeaderElements=rightHeaderItems;
+    console.log(rightHeaderElements);
         return ( 
             <div>
                 <div className="outer-header">
                     <div className="header"> 
                         <div className="sub-header1">
                             <div className="header-icon"> 
-                                <img src={headerIconImage} alt="" style={{width:40+"px",height:40+"px"}}/> 
+                                <img src={SWIGGY_ICON} alt="" style={{width:40+"px",height:40+"px"}}/> 
                             </div>
                             <div>set location</div>
                         </div>
                         <div className="sub-header2">
-                            <div>
-                                <i className="fa fa-circle"></i>Help
-                            </div>
-                            <div>
-                                <i className="fa-solid fa-circle header-icon"></i>Sign in
-                            </div>
-                            <div>
-                                <i className="fa-solid fa-circle header-icon"></i>Cart
-                            </div>
+                            {rightHeaderElements.map((item)=>{
+                                return(
+                                <IconText icon={item.icon} text={item.text}/>
+                                )
+                            })}
+                            
                         </div>
                     </div>
                 </div>
@@ -41,7 +34,7 @@ class Header extends Component {
 
             
         )
-    }
+    
 }
 
 export default Header;

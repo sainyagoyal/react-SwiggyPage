@@ -1,0 +1,85 @@
+.main-box-child3 {
+  width: 23%;
+}
+.no-of-items {
+  padding-bottom: 30px;
+  font-size: 13px;
+  color: #686b78;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.cart-item-big-box {
+  margin-top: 15%;
+}
+.cart-item-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10%;
+}
+.cart-icon-box {
+  width: 10%;
+}
+.cart-item-name {
+  width: 40%;
+}
+
+.cart-number-box {
+  height: 30px;
+  border: 1px solid #d4d5d9;
+  color: #60b246;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 30px;
+  position: relative;
+  position: relative;
+  justify-content: space-evenly;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  width: 30%;
+  margin-right: 10%;
+}
+.cart-decrement {
+  cursor: pointer;
+}
+.cart-increment {
+  cursor: pointer;
+}
+.cart-price {
+  width: 20%;
+}
+
+.bill {
+  margin-top: 15%;
+}
+.bill-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Subtotal {
+  color: #3d4152;
+  font-size: 17px;
+  font-weight: 600;
+}
+.checkout-button {
+  height: 50px;
+  background-color: #60b246;
+  outline: 0;
+  cursor: pointer;
+  border: 0;
+  color: #fff;
+  margin-top: 28px;
+  text-transform: uppercase;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+}
