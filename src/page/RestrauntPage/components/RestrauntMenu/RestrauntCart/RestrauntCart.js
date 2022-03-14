@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import MainMenu from "../MainMenu/MainMenu";
-import './Cart.css';
+import RestrauntMainMenu from "../RestrauntMainMenu/RestrauntMainMenu";
+import './RestrauntCart.css';
 
-class Cart extends Component{
+class RestrauntCart extends Component{
 
     constructor(props){
         super(props);
@@ -60,4 +60,4 @@ class Cart extends Component{
         )
     }
 }
-export default Cart;
+export default RestrauntCart;

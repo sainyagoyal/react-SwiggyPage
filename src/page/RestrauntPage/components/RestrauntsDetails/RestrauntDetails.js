@@ -1,11 +1,12 @@
 import React from "react";
 import {RESTRAUNT_DETAIL_FOOD_IMAGE} from '../../../../Images/image'
 import './RestrauntDetails.css'
-import {restDetails} from '../../services/restrauntsData'
 import IconTextSubtext from "../../../../molecule/IconTextSubtext/IconTextSubtext";
 import IconText from "../../../../molecule/IconText/IconText";
+
+
 function RestrauntDetails(props){
-    const restDetail=restDetails;
+    const {restDetail}=props;
     let ratingVal="";
     (restDetail.restrauntRating>4 ? ratingVal="100+ Ratings": ratingVal="too few ratings")
     

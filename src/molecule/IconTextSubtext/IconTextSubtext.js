@@ -1,6 +1,7 @@
 import React from "react";
 import Icon from '../../atom /Icon/Icon'
 import Text from '../../atom /Text/Text';
+import SubText from "../../atom /SubText/SubText";
 
 function IconTextSubtext(props){
     const{text,icon,subText}=props;
@@ -8,7 +9,7 @@ function IconTextSubtext(props){
         <div>
             <Icon icon={icon}/>
             <Text text={text}/>
-            <div>{subText}</div>
+            <SubText subText={subText}/>
         </div>
     )
 

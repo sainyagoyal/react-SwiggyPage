@@ -1,5 +1,5 @@
 import ItemBuilder from "./itemBuilder";
-import main_menu from "./dataMainMenu";
+import {main_menu} from "../restrauntsData";
 
 const main_menu_arr=[];
 
