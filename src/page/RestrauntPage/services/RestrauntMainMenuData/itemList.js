@@ -11,6 +11,7 @@ for(let i=0;i<main_menu.length;i++){
         .setImage(main_menu[i].image)
         .setId(main_menu[i].id)
         .setCategory(main_menu[i].category)
+        .setQty(main_menu[i].qty)
         .build());
 }
 

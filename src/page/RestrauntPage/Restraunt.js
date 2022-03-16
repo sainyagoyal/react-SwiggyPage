@@ -5,9 +5,10 @@ import RestrauntMenu from "./components/RestrauntMenu/RestrauntMenu"
 import main_menu_arr from './services/RestrauntMainMenuData/itemList';
 import {side_menu_arr} from './services/restrauntsData';
 import {restDetails} from './services/restrauntsData';
-
+import './Restraunt.css';
 
 function Restraunt (){
+
     return(
         <div>
         <Header/>

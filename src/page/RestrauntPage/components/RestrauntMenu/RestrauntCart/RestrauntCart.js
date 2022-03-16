@@ -1,44 +1,74 @@
 import React, { Component } from "react";
+import { main_menu } from "../../../services/restrauntsData";
 import RestrauntMainMenu from "../RestrauntMainMenu/RestrauntMainMenu";
+import {VEG_ICON} from "../../../../../Images/image"
+import {NON_VEG_ICON} from "../../../../../Images/image"
 import './RestrauntCart.css';
 
-class RestrauntCart extends Component{
 
-    constructor(props){
-        super(props);
-        this.state={
-            values:[],
-            totalCartCount:0,
-            bill:0
+function RestrauntCart (props){
+
+        const {cartItems,onAdd,onRemove}=props;
+
+        const totalCount=()=>{
+            
+            var totalCartCount=0;
+            for(var x in cartItems){
+                totalCartCount+=cartItems[x].qty;
+            }
+            return totalCartCount;
         }
-    }
 
-    
+        const totalBill=()=>{
+            var bill=0;
+            for(var x in cartItems){
+                bill+=cartItems[x].price*cartItems[x].qty;
+            }
+            return bill;
+        }
 
-    render(){
+        if(totalCount()==0){
+            return(
+                <div className="cart-empty" style={{fontSize:32+"px" ,fontWeight:600}}>
+                    CART EMPTY
+                    </div> 
+            )
+        }
         
+        else{
         return(
-            <div className="main-box-child3">
-                
+            <div className="main-box-child3"> 
                 <div>
                     <div style={{fontSize:32+"px" ,fontWeight:600}}>CART</div>
-                    <div>from Box8-Desi Meals</div>
-                    <div className="no-of-items" id="cart-no-of-items">0 Item</div>
+                    <div>from kitchen of punjab</div>
+                    <div className="no-of-items" id="cart-no-of-items">{totalCount()}</div>
                 </div>
-                <div className="cart-empty">
-                    cart is empty
-                </div>
+               
+                   
+                
                 <div className="cart-item-big-box">
-                 <div className="cart-item-box">
-                    <div className="cart-icon-box"><img src="./images/non-veg.png" className="cart-icon"></img></div>
-                    <div className="cart-item-name"> Chcken tikka</div>
-                    <div className="cart-number-box">
-                            <div className="cart-decrement">-</div>
-                            <div className="cart-quantity">9</div>
-                            <div className="cart-increment">+</div>
+                    {
+                        cartItems.map((item)=>{
+                            return(
+                                <div className="cart-item-box">
+                                    <div className="cart-icon-box">
+
+                                        <img src={(item.veg)? VEG_ICON : NON_VEG_ICON} className="cart-icon"></img>
+                                        </div>
+                                    <div className="cart-item-name">{item.title}</div>
+                                    <div className="cart-number-box">
+                            <div className="cart-decrement" >-</div>
+                            <div className="cart-quantity">{item.qty}</div>
+                            <div className="cart-increment" >+</div>
                     </div>
-                        <div className="cart-price">Rs 699</div>
-                </div> 
+                        <div className="cart-price">Rs{item.price}</div>
+        </div> 
+                            )
+                        })
+                    }
+                   
+                   
+                
                 </div>
                 
                 <div className="bill">
@@ -47,7 +77,7 @@ class RestrauntCart extends Component{
                             Subtotal
                         </div>
                         <div className="totla-bill-price">
-                            Rs699
+                            {totalBill()}
                         </div>
                     </div>
                     <div>
@@ -58,6 +88,7 @@ class RestrauntCart extends Component{
             
             </div>
         )
-    }
+        }
+    
 }
 export default RestrauntCart;

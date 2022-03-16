@@ -23,7 +23,7 @@ function RestrauntDetails(props){
                                 <div>{restDetail.restrauntType}</div>
                             </div>
                         
-                            <div>{restDetail.restrauntAddress}</div>
+                            <div className="rest-address">{restDetail.restrauntAddress}</div>
                             <div className="flex-container-row">
                                 
                                 <IconTextSubtext icon={"fa fa-star"} text={restDetail.restrauntRating} subText={ratingVal}/>
@@ -31,18 +31,10 @@ function RestrauntDetails(props){
                                 <IconTextSubtext icon={"fa fa-inr"} text={restDetail.restrauntPrice} subText="Cost for two"/>
                                
                             </div>
-                            <div className="flex-container-row">
-                                <div className="search-fav-veg" style={{width:254+'px'}}>
-                                    <input className="input-class" id="search-filter" type="text" placeholder="Search for dishes.."/>
-                                </div>
-                                <div className="search-fav-veg">
-                                    <input type="checkbox" id="vegonly" name="vegonly" value="vegonly"/>
-                                    <label >Veg only</label> 
-                                
-                                </div>
-                                <div className="search-fav-veg">Favourite</div>
-                            </div>
+                            
                         </div>
+                        
+                        
                         {/* <!-- offer --> */}
                         <div className="black-box-child3">
                             <div className="offer">OFFER</div>
@@ -55,13 +47,13 @@ function RestrauntDetails(props){
                             </div>
                             
                         </div>
+
+                       
                     
                     
                     
                     </div>
-                    
-        </div>
-        
+                    </div>    
     )
 }
 export default RestrauntDetails;

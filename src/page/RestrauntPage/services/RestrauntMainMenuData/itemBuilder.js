@@ -1,6 +1,6 @@
 
 
-let Item =function(id,title, veg, price, desc, image, category) {
+let Item =function(id,title, veg, price, desc, image, category, qty) {
     this.id=id;
     this.title = title;
     this.veg = veg;
@@ -8,6 +8,7 @@ let Item =function(id,title, veg, price, desc, image, category) {
     this.desc = desc;
     this.image = image;
     this.category = category;
+    this.qty=qty;
 }
 
 // Builder class for each item
@@ -54,8 +55,12 @@ let ItemBuilder =function() {
                 this.category = category;
                 return this;
             },
+            setQty:function(qty){
+                this.qty=qty;
+                return this;
+            },
             build:function() {
-                return new Item(this.id,this.title, this.veg, this.price, this.desc, this.image, this.category);
+                return new Item(this.id,this.title, this.veg, this.price, this.desc, this.image, this.category,this.qty);
             },
 
         }

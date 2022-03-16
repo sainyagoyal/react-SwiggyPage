@@ -52,7 +52,8 @@ export const restrauntData=[
                 title:"Veg Platter",
                 desc:"Feel like a Nawab with this one, soft cubes of paneer cooked in a flavourful in-house Chef special gravy, served along with aromatic matar pulao. Contains Milk, Nuts.",
                 image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzR3YadgMaJgWRO6NdElEYgdvdLJDPLzaD8Q&usqp=CAU",
-                category:"Recommended"
+                category:"Recommended",
+                qty:0
             },
             {
                 id:2,
@@ -61,7 +62,8 @@ export const restrauntData=[
                 title:"Non-Veg Platter",
                 desc:"Feel like a Nawab with this one, soft cubes of chicken cooked in a flavourful in-house Chef special gravy, served along with aromatic matar pulao. Contains Milk, Nuts.",
                 image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzR3YadgMaJgWRO6NdElEYgdvdLJDPLzaD8Q&usqp=CAU",
-                category:"Recommended"
+                category:"Recommended",
+                qty:0
             },
             {
                 id:3,
@@ -70,7 +72,8 @@ export const restrauntData=[
                 title:"chinese Platter",
                 desc:"Feel like a Nawab with this one, soft cubes of chicken cooked in a flavourful in-house Chef special gravy, served along with aromatic matar pulao. Contains Milk, Nuts.",
                 image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzR3YadgMaJgWRO6NdElEYgdvdLJDPLzaD8Q&usqp=CAU",
-                category:"Recommended"
+                category:"Recommended",
+                qty:0
             },
             {
                 id:4,
@@ -79,7 +82,8 @@ export const restrauntData=[
                 title:"ice-cream",
                 desc:"Feel like a Nawab with this one, soft cubes of chicken cooked in a flavourful in-house Chef special gravy, served along with aromatic matar pulao. Contains Milk, Nuts.",
                 image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzR3YadgMaJgWRO6NdElEYgdvdLJDPLzaD8Q&usqp=CAU",
-                category:"Sides"
+                category:"Sides",
+                qty:0
             },
             {
                 id:5,
@@ -88,7 +92,8 @@ export const restrauntData=[
                 title:"waffles",
                 desc:"Feel like a Nawab with this one, soft cubes of chicken cooked in a flavourful in-house Chef special gravy, served along with aromatic matar pulao. Contains Milk, Nuts.",
                 image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzR3YadgMaJgWRO6NdElEYgdvdLJDPLzaD8Q&usqp=CAU",
-                category:"Sides"
+                category:"Sides",
+                qty:0
             },
             {
                 id:6,
@@ -97,7 +102,8 @@ export const restrauntData=[
                 title:"Bowl",
                 desc:"Feel like a Nawab with this one, soft cubes of chicken cooked in a flavourful in-house Chef special gravy, served along with aromatic matar pulao. Contains Milk, Nuts.",
                 image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzR3YadgMaJgWRO6NdElEYgdvdLJDPLzaD8Q&usqp=CAU",
-                category:"Recommended"
+                category:"Recommended",
+                qty:0
             },
             {
                 id:7,
@@ -106,7 +112,8 @@ export const restrauntData=[
                 title:"shakes",
                 desc:"Feel like a Nawab with this one, soft cubes of chicken cooked in a flavourful in-house Chef special gravy, served along with aromatic matar pulao. Contains Milk, Nuts.",
                 image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzR3YadgMaJgWRO6NdElEYgdvdLJDPLzaD8Q&usqp=CAU",
-                category:"Drinks"
+                category:"Drinks",
+                qty:0
             }
         ]
         
