@@ -1,7 +1,6 @@
 import React from 'react'
 import './App.css';
 
-// import Restraunt from './Components/Restraunt/Restraunt';
 import Restraunt from './page/RestrauntPage/Restraunt';
 
 

@@ -3,12 +3,15 @@ import { main_menu } from "../../../services/restrauntsData";
 import RestrauntMainMenu from "../RestrauntMainMenu/RestrauntMainMenu";
 import {VEG_ICON} from "../../../../../Images/image"
 import {NON_VEG_ICON} from "../../../../../Images/image"
+import {connect} from 'react-redux';
+import { addCart, removeCart } from "../../../../../redux";
 import './RestrauntCart.css';
 
 
 function RestrauntCart (props){
 
         const {cartItems,onAdd,onRemove}=props;
+        console.log("inside carrt ",cartItems);
 
         const totalCount=()=>{
             
@@ -57,9 +60,15 @@ function RestrauntCart (props){
                                         </div>
                                     <div className="cart-item-name">{item.title}</div>
                                     <div className="cart-number-box">
-                            <div className="cart-decrement" >-</div>
+                            <div className="cart-decrement"onClick={()=>{
+                                props.removeCart(item)
+                            }} >-</div>
                             <div className="cart-quantity">{item.qty}</div>
-                            <div className="cart-increment" >+</div>
+                            <div className="cart-increment" onClick={()=>{
+                                    console.log("item quantityyyyyyyy"+item);
+                                        props.addCart(item)
+                                    }}
+                             >+</div>
                     </div>
                         <div className="cart-price">Rs{item.price}</div>
         </div> 
@@ -90,5 +99,19 @@ function RestrauntCart (props){
         )
         }
     
+
 }
-export default RestrauntCart;
+
+const mapStateToProps = state => {
+    return {
+      cartItems: state.cartItems
+    }
+  }
+
+const mapDispatchToProps = dispatch =>{
+    return{
+        addCart: product => dispatch(addCart(product)),
+        removeCart :product=>dispatch(removeCart(product))
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)( RestrauntCart);

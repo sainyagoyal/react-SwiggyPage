@@ -2,12 +2,14 @@ import React, { Component, useState } from "react";
 import {VEG_ICON} from "../../../../../Images/image";
 import {NON_VEG_ICON} from "../../../../../Images/image"
 import './RestrauntMainMenu.css'
+import {connect} from 'react-redux'
+import {addCart,removeCart} from '../../../../../redux/index'
 
 
 
 
 function MainMenu (props){
-    const {mainMenu,onAdd,onRemove,mainMenuItems,setMainMenuItems}=props;
+    const {mainMenu,mainMenuItems,setMainMenuItems}=props;
     
     function itemQuantityDecrease(product){
          const item=mainMenuItems.find((x)=>x.id === product.id);
@@ -42,14 +44,14 @@ function MainMenu (props){
                                 <img src={item.image} alt="food-image" width="118px" height="96px" style={{borderRadius: "6px"}}/>
                                 <div className="add">
                                     <div className="decrement-main-menu" onClick={()=>{
-                                        onRemove(item);
+                                        props.removeCart(item)
                                         itemQuantityDecrease(item);
                                         }}>-</div>
                                     <div className="item-quantity-main-menu">{(item.qty)?item.qty:"ADD"}</div>
                                     <div className="increment-main-menu" onClick={()=>{
                                     console.log("item quantityyyyyyyy"+item);
                                     itemQuantityIncrease(item);
-                                        onAdd(item);
+                                        props.addCart(item)
                                     }}
                                     >+</div>
                                 </div>
@@ -61,4 +63,22 @@ function MainMenu (props){
         </div>)     
     
 }
-export default MainMenu
+
+const mapStateToProps = state => {
+    return {
+      cartItems: state.cartItems
+    }
+  }
+
+const mapDispatchToProps = dispatch =>{
+    return{
+        addCart: product => dispatch(addCart(product)),
+        removeCart:product => dispatch(removeCart(product))
+
+    }
+}
+
+export default connect (
+    mapStateToProps,
+    mapDispatchToProps
+)(MainMenu)
