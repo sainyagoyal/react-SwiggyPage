@@ -1,13 +1,15 @@
 import React from 'react'
 import './App.css';
-import Header from './Components/Header/Header'
-import Restraunt from './Components/Restraunt/Restraunt';
+
+import Restraunt from './page/RestrauntPage/Restraunt';
+
 
 function App() {
   return (
     <div>
-      <Header/>
+      
       <Restraunt/>
+      
     </div>
   );
 }
