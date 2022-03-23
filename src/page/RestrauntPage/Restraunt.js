@@ -8,16 +8,14 @@ import {side_menu_arr} from './services/restrauntsData';
 import {restDetails} from './services/restrauntsData';
 import store from '../../redux/store'
 import './Restraunt.css';
+import {rightHeaderItems} from '../../organism/Header/services/data'
 
 function Restraunt (){
-
     return(
         <Provider store={store}>
-        <div>
-        <Header/>
+        <Header rightHeaderItems={rightHeaderItems}/>
         <RestrauntDetails restDetail={restDetails}/>
         <RestrauntMenu sideMenu={side_menu_arr} mainMenu={main_menu_arr}/>
-        </div>
         </Provider>
     )
 }

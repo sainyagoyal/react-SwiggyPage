@@ -1,53 +1,29 @@
 import React,{useState} from "react";
-import RestrauntMainMenu from '../components/RestrauntMenu/RestrauntMainMenu/RestrauntMainMenu'
+import { vegFilter } from "../../../redux/index";
+import RestrauntMainMenu from '../components/RestrauntMainMenu/RestrauntMainMenu'
+import {connect} from 'react-redux'
+import {searchFilter} from '../../../redux/index'
+
 
 function Filter(props){
-    const {mainMenu,onAdd,onRemove}=props;
-    const [mainMenuItems,setMainMenuItems]=useState([...mainMenu]);
-    const [searchVal,setSearchVal] =useState("");
+
+    const {menuItems,mainMenuOriginal,vegFilter,searchFilter}=props;
     const [vegChecked,setVegChecked]=useState(true);
 
-    const vegFilter=()=>{
+    const vegOnly=()=>{
+        console.log("inside veg onlky");
         setVegChecked(!vegChecked);
-        let filterMainMenuItems=[];
-        if(vegChecked){  
-            for( let x in mainMenu){
-                if(mainMenu[x].veg==true){
-                    filterMainMenuItems.push(mainMenu[x]);
-                }
-            }
-           
-         setMainMenuItems(filterMainMenuItems);
-        }
-        else{
-            for( let x in mainMenu){        
-                    filterMainMenuItems.push(mainMenu[x]);   
-            }
-            setMainMenuItems(filterMainMenuItems);
-        }
+        vegFilter(mainMenuOriginal,vegChecked);
     }
-
-    const searchFilter=(e)=>{
-        let filterMainMenuItems=[];
-
-        setSearchVal(e.target.value);
-        for(var x in mainMenu){  
-            if(mainMenu[x].title.includes(searchVal)){ 
-                filterMainMenuItems.push(mainMenu[x]);
-            }
-        }
-        setMainMenuItems(filterMainMenuItems);
-    }
-
     return(
          <div className="main-box-child2">  
         <div className="filter-box"> 
                         <div className="flex-container-row">
                                 <div className="search-fav-veg" style={{width:254+'px'}}>
-                                    <input className="input-class" id="search-filter" onChange={searchFilter} type="text" placeholder="Search for dishes.."/>
+                                    <input className="input-class" id="search-filter" onChange={(e)=>searchFilter(mainMenuOriginal,e.target.value)} type="text" placeholder="Search for dishes.."/>
                                 </div>
                                 <div className="search-fav-veg">
-                                    <input type="checkbox" onChange={vegFilter}/>
+                                    <input type="checkbox" onChange={()=>{vegOnly() }}/>
                                     <label >Veg only</label> 
                                 
                                 </div>
@@ -56,12 +32,31 @@ function Filter(props){
              </div>
             <div>
                 <div className="main-box-heading1">Recommended</div>
-                <div className="no-of-items">{mainMenuItems.length}</div>
+                <div className="no-of-items">{menuItems.length}</div>
             </div>
-            <RestrauntMainMenu  onAdd={onAdd} onRemove={onRemove} mainMenuItems={mainMenuItems} setMainMenuItems={setMainMenuItems}/>
+            <RestrauntMainMenu  />
 
         </div>
     )
 }
 
-export default Filter;
+const mapStateToProps =state =>{
+
+    return{
+        mainMenuOriginal:state.menu.mainMenuOriginal,
+        menuItems:state.menu.menuItems
+    }
+}
+
+const mapDispatchToProps = dispatch =>{
+    
+    return{
+        vegFilter:(mainMenuOriginal,flag)=> dispatch(vegFilter(mainMenuOriginal,flag)),
+        searchFilter: (mainMenuOriginal,val)=>dispatch(searchFilter(mainMenuOriginal,val))
+    }
+}
+
+export default connect (
+    mapStateToProps,
+    mapDispatchToProps
+    )(Filter);

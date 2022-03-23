@@ -9,8 +9,6 @@ function RestrauntDetails(props){
     const {restDetail}=props;
     let ratingVal="";
     (restDetail.restrauntRating>4 ? ratingVal="100+ Ratings": ratingVal="too few ratings")
-    
-    console.log(restDetail);
     return(
         <div className="black-box">
                     <div className="flex-container-row-black-box ">
@@ -32,10 +30,8 @@ function RestrauntDetails(props){
                                
                             </div>
                             
-                        </div>
-                        
-                        
-                        {/* <!-- offer --> */}
+                        </div> 
+                          
                         <div className="black-box-child3">
                             <div className="offer">OFFER</div>
                             <div className="offers-item">
@@ -47,11 +43,6 @@ function RestrauntDetails(props){
                             </div>
                             
                         </div>
-
-                       
-                    
-                    
-                    
                     </div>
                     </div>    
     )

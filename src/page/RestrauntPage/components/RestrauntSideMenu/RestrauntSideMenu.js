@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import {side_menu_arr} from'../../../services/restrauntsData';
+import {side_menu_arr} from'../../services/restrauntsData';
 import './RestrauntSideMenu.css'
 
 
 function RestrauntSideMenu(props){
   
    const {sideMenu}=props;
-
-   
-        console.log("sainyaaaaaa");
         return(
             
             <div className="main-box-parent2">

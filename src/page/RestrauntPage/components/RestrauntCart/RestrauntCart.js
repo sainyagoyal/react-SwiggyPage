@@ -1,36 +1,17 @@
 import React, { Component } from "react";
-import { main_menu } from "../../../services/restrauntsData";
-import RestrauntMainMenu from "../RestrauntMainMenu/RestrauntMainMenu";
-import {VEG_ICON} from "../../../../../Images/image"
-import {NON_VEG_ICON} from "../../../../../Images/image"
+import {VEG_ICON} from "../../../../Images/image"
+import {NON_VEG_ICON} from "../../../../Images/image"
 import {connect} from 'react-redux';
-import { addCart, removeCart } from "../../../../../redux";
+import { addCart, removeCart,incrementMenuItem,decrementMenuItem } from "../../../../redux";
+import {totalCount,totalBill} from '../../../../utility/cartUpdate'
 import './RestrauntCart.css';
+
 
 
 function RestrauntCart (props){
 
-        const {cartItems,onAdd,onRemove}=props;
-        console.log("inside carrt ",cartItems);
-
-        const totalCount=()=>{
-            
-            var totalCartCount=0;
-            for(var x in cartItems){
-                totalCartCount+=cartItems[x].qty;
-            }
-            return totalCartCount;
-        }
-
-        const totalBill=()=>{
-            var bill=0;
-            for(var x in cartItems){
-                bill+=cartItems[x].price*cartItems[x].qty;
-            }
-            return bill;
-        }
-
-        if(totalCount()==0){
+        const {cartItems,menuItems,addCart,removeCart,incrementMenuItem,decrementMenuItem}=props;
+        if(totalCount(cartItems)==0){
             return(
                 <div className="cart-empty" style={{fontSize:32+"px" ,fontWeight:600}}>
                     CART EMPTY
@@ -44,7 +25,7 @@ function RestrauntCart (props){
                 <div>
                     <div style={{fontSize:32+"px" ,fontWeight:600}}>CART</div>
                     <div>from kitchen of punjab</div>
-                    <div className="no-of-items" id="cart-no-of-items">{totalCount()}</div>
+                    <div className="no-of-items" id="cart-no-of-items">{totalCount(cartItems)}</div>
                 </div>
                
                    
@@ -61,12 +42,14 @@ function RestrauntCart (props){
                                     <div className="cart-item-name">{item.title}</div>
                                     <div className="cart-number-box">
                             <div className="cart-decrement"onClick={()=>{
-                                props.removeCart(item)
+                                removeCart(item,cartItems)
+                                decrementMenuItem(item,menuItems)
+
                             }} >-</div>
                             <div className="cart-quantity">{item.qty}</div>
                             <div className="cart-increment" onClick={()=>{
-                                    console.log("item quantityyyyyyyy"+item);
-                                        props.addCart(item)
+                                    incrementMenuItem(item,menuItems)
+                                    addCart(item,cartItems)
                                     }}
                              >+</div>
                     </div>
@@ -86,7 +69,7 @@ function RestrauntCart (props){
                             Subtotal
                         </div>
                         <div className="totla-bill-price">
-                            {totalBill()}
+                            {totalBill(cartItems)}
                         </div>
                     </div>
                     <div>
@@ -102,16 +85,20 @@ function RestrauntCart (props){
 
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = state => { 
     return {
-      cartItems: state.cartItems
+      cartItems: state.cart.cartItems,
+      menuItems: state.menu.menuItems
     }
+    
   }
 
 const mapDispatchToProps = dispatch =>{
     return{
-        addCart: product => dispatch(addCart(product)),
-        removeCart :product=>dispatch(removeCart(product))
+        addCart: (product,cartItems) => dispatch(addCart(product,cartItems)),
+        removeCart :(product,cartItems)=>dispatch(removeCart(product,cartItems)),
+        incrementMenuItem :(product,menuItems) => dispatch(incrementMenuItem(product,menuItems)),
+        decrementMenuItem: (product,menuItems)=> dispatch(decrementMenuItem(product,menuItems))
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)( RestrauntCart);

@@ -15,5 +15,4 @@ for(let i=0;i<main_menu.length;i++){
         .build());
 }
 
-
 export default main_menu_arr;
