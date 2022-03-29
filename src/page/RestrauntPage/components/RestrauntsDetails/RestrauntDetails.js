@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import {RESTRAUNT_DETAIL_FOOD_IMAGE} from '../../../../Images/image'
 import './RestrauntDetails.css'
 import IconTextSubtext from "../../../../molecule/IconTextSubtext/IconTextSubtext";
 import IconText from "../../../../molecule/IconText/IconText";
+import { RestrauntContext } from "../../../../context/restaurantDetailsContext";
 
 
-function RestrauntDetails(props){
-    const {restDetail}=props;
+function RestrauntDetails(){
+    const restDetail = useContext(RestrauntContext);
+    
     let ratingVal="";
     (restDetail.restrauntRating>4 ? ratingVal="100+ Ratings": ratingVal="too few ratings")
     return(
