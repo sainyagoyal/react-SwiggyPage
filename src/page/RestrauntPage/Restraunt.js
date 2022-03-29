@@ -21,4 +21,4 @@ function Restraunt (){
     )
 }
 
-export default Restraunt;
+export default Restraunt; 
