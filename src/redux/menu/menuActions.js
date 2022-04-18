@@ -7,7 +7,6 @@ import { vegFilterFunction } from "../../utility/menuItemQuantity";
 import {searchFilterFunction} from '../../utility/menuItemQuantity'
 
 export const incrementMenuItem=(product,menuItems)=>{
-    console.log("inside menyactions:::;:",menuItems)
     const list=updateMenuItemQuantity(menuItems,product,1)
     return{
         type:INCREMENT_MENU_ITEM,
@@ -26,8 +25,6 @@ export const decrementMenuItem=(product,menuItems)=>{
 export const vegFilter=(menuItems,flag)=>{
   
     const list=vegFilterFunction(menuItems,flag);
-    console.log("inside action",menuItems,flag)
-    console.log("inisdde action list ::",list);
     return{
         type:VEG_FILTER,
         payload:list
@@ -36,7 +33,6 @@ export const vegFilter=(menuItems,flag)=>{
 }
 
 export const searchFilter=(menuItems,val)=>{
-    console.log("inside menu action of search filter");
     const list=searchFilterFunction(menuItems,val);
     return{
         type:SEARCH_FILTER,

@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
+import {Link } from "react-router-dom";
 import {VEG_ICON} from "../../../../Images/image"
 import {NON_VEG_ICON} from "../../../../Images/image"
 import {connect} from 'react-redux';
@@ -11,7 +12,7 @@ import './RestrauntCart.css';
 function RestrauntCart (props){
 
         const {cartItems,menuItems,addCart,removeCart,incrementMenuItem,decrementMenuItem}=props;
-        if(totalCount(cartItems)==0){
+        if(totalCount(cartItems)===0){
             return(
                 <div className="cart-empty" style={{fontSize:32+"px" ,fontWeight:600}}>
                     CART EMPTY
@@ -37,7 +38,7 @@ function RestrauntCart (props){
                                 <div className="cart-item-box">
                                     <div className="cart-icon-box">
 
-                                        <img src={(item.veg)? VEG_ICON : NON_VEG_ICON} className="cart-icon"></img>
+                                        <img src={(item.veg)? VEG_ICON : NON_VEG_ICON} className="cart-icon" alt="img"></img>
                                         </div>
                                     <div className="cart-item-name">{item.title}</div>
                                     <div className="cart-number-box">
@@ -54,7 +55,7 @@ function RestrauntCart (props){
                              >+</div>
                     </div>
                         <div className="cart-price">Rs{item.price}</div>
-        </div> 
+                    </div> 
                             )
                         })
                     }
@@ -73,7 +74,9 @@ function RestrauntCart (props){
                         </div>
                     </div>
                     <div>
-                     <button className="checkout-button" id="checkout-button"> CHECKOUT</button>
+                        <Link to ='/cart' className="link-class">
+                            <button className="checkout-button" > CHECKOUT</button>
+                        </Link>
                     </div>
                     
                 </div>

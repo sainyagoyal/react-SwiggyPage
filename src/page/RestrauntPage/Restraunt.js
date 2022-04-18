@@ -12,11 +12,11 @@ import {rightHeaderItems} from '../../organism/Header/services/data'
 
 function Restraunt (){
     return(
-        <Provider store={store}>
+        <div>
         <Header rightHeaderItems={rightHeaderItems}/>
         <RestrauntDetails restDetail={restDetails}/>
         <RestrauntMenu sideMenu={side_menu_arr} mainMenu={main_menu_arr}/>
-        </Provider>
+        </div>
     )
 }
 
